@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+venv/
+env/
+ENV/
+*.log
+
+# Django specific
+*.sqlite3
+media/
+static/
+local_settings.py
+
+# VS Code
+.vscode/
+
+# OS or Editor Folders
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp

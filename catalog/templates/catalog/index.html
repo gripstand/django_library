@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is now the homepage</h1>
+    <p>Total Books {{books}}</p>
+    <p>Number Available {{avail}}</p> 
+    {% if user.is_authenticated %}
+        <p>You are logged in<br />
+            Welcome: {{user.get_username}}<br/>
+            <form method="post" action="{% url 'logout' %}?next={{request.path}}">
+                {% csrf_token %}
+                <input type="submit" value="Log Out">
+            </form>
+    {% else %}
+            <p>You are not logged in<br/>
+            <a href="{% url 'login' %}?next={{request.path}}">click here to log in</a>
+    {% endif %}
+</body>
+</html>
+
+
