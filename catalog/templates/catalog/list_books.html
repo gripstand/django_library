@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Listing all books in system</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ISBN</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Langage</th>
+            </tr>
+        </thead>
+    {% for book in book_list %}
+    <tr>
+   <td scope="'row"><a href="book/{{book.id}}">{{book.isbn}}</a></td>
+   <td scope="'row">{{book.title}}</td>
+   <td scope="'row">{{book.author}}</td>
+   <td scope="'row">{{book.genre}}</td>
+   <td scope="'row">{{book.language}}</td>
+    </tr> 
+   {% endfor %}
+    </table>
+</div>
+{% endblock %}

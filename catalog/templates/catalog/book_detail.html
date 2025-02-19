@@ -1,2 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
 <h1>Book Details</h1>
-{{book}}
+
+{{book.title}}<br/>
+{{book.author}}<br/>
+
+{{book.isbn}}<br/>
+{{book.genre}}<br/>
+{{lbook.anguage}}<br/>
+
+{{book.summary}}<br/>
+The ID is {{book.id}}<br/>
+The test is {{test}}<br/>
+<br>
+
+{% for copy in book.bookinstance_set.all %}
+{{copy.id}}<br/>
+{{copy.imprint}}<br/>
+{{copy.status}}<br/>
+{% endfor %}
+</div>
+{% endblock %}
