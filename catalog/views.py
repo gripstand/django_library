@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import get_object_or_404
+from .forms import AuthorForm
+
 
 # Create your views here.
 
@@ -23,13 +25,29 @@ def index(request):
     return render(request,'catalog/index.html',context=context)
 
 
+
+class GenreCreate(LoginRequiredMixin, CreateView):
+    model=Genre
+    fields='__all__'
+    # def get_context_data(self, **kwargs):
+    #     context =super().get_context_data(**kwargs)
+    #     data=Genre.objects.all()
+    #     context = {'my_data':data}
+    #     return context
+
+
 class BookCreate(LoginRequiredMixin, CreateView):
     model=Book
     fields='__all__'
 
 class AuthorCreate(LoginRequiredMixin, CreateView):
     model=Author
-    fields='__all__'
+    form_class = AuthorForm
+    # def get_form(self):
+    #     form = super().get_form()
+    #     form.fields['date_of_birth'].widget = DateTimePickerInput()
+    #     return form
+    #fields='__all__'
 
 #class BookDetail(DetailView):
 #    model=Book
@@ -66,7 +84,15 @@ class CheckedOutBooksByUser(LoginRequiredMixin,ListView):
 class AllBooks(ListView):
     model=Book
     template_name='catalog/list_books.html'
-    paginate_by=5
+    paginate_by=25
 
     def get_queryset(self):
         return Book.objects.all()
+    
+class AllAuthors(ListView):
+    model=Author
+    template_name='catalog/list_author.html'
+    paginate_by=25
+
+    def get_queryset(self):
+        return Author.objects.all()

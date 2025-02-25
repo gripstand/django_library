@@ -17,7 +17,7 @@
    <td scope="'row"><a href="book/{{book.id}}">{{book.isbn}}</a></td>
    <td scope="'row">{{book.title}}</td>
    <td scope="'row">{{book.author}}</td>
-   <td scope="'row">{{book.genre}}</td>
+   <td scope="'row">{{ book.genre.all|join:", " }}</td>
    <td scope="'row">{{book.language}}</td>
     </tr> 
    {% endfor %}

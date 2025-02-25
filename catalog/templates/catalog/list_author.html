@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Listing all authors in system</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Date of Birth</th>
+                <th colspan="2" scope="col">Action</th>
+            </tr>
+        </thead>
+    {% for author in author_list %}
+    <tr>
+   <td scope="'row"><a href="#">{{author.first_name}}</a></td>
+   <td scope="'row">{{author.last_name}}</td>
+   <td scope="'row">{{author.date_of_birth}}</td>
+   <td scope="'row">Edit</td>
+   <td scope="'row">Delete</td>
+    </tr> 
+   {% endfor %}
+    </table>
+</div>
+{% endblock %}

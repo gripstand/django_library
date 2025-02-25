@@ -8,7 +8,10 @@ class Genre(models.Model):
     name=models.CharField(max_length=150)
     def __str__(self):
         return self.name
-    
+    def get_absolute_url(self):
+        #return reverse('author_detail',kwargs={"pk":self.pk})
+        return reverse('list_books')
+
 class Language(models.Model):
     name=models.CharField(max_length=200)
     def __str__(self):

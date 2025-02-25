@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+<h1>Add New Genre</h1>
+<form method="POST">
+{% csrf_token %}
+{% for field in form %}
+<div class="col-6 text-start">{{field.label}}</div>
+<div class="col-6">{{field}}</div>
+{% endfor %}
+<input type="submit" value="Submit">
+</form>
+
+</div>
+{% endblock %}
