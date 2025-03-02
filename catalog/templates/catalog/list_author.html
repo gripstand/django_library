@@ -16,8 +16,8 @@
    <td scope="'row"><a href="#">{{author.first_name}}</a></td>
    <td scope="'row">{{author.last_name}}</td>
    <td scope="'row">{{author.date_of_birth}}</td>
-   <td scope="'row">Edit</td>
-   <td scope="'row">Delete</td>
+   <td scope="'row"><a href='/catalog/update_author/{{author.id}}'> Edit</a></td>
+   <td scope="'row"><a href='/catalog/delete_author/{{author.id}}'>Delete</a></td>
     </tr> 
    {% endfor %}
     </table>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Author
+from .models import Author, BookInstance
 from django.forms import ModelForm
 from .widgets import DatePickerInput
 from bootstrap_datepicker_plus.widgets import DateTimePickerInput
@@ -20,3 +20,12 @@ class AuthorForm(ModelForm):
              'date_of_birth':'DOB'
 
         }
+
+class InstanceForm(ModelForm):
+     class Meta:
+          model=BookInstance
+          fields=['book','imprint','borrower','status']
+          #book=forms.ChoiceField(initial="Biteme")
+  
+
+

@@ -2,10 +2,11 @@
 {% block content %}
 <div class="container">
 {% if author.pk %}    
-    <h1>Update Author</h1>
+    <h1>Update Instance</h1>
 {% else %}
-    <h1>Add New Author</h1>
+    <h1>Add Instance</h1>
 {% endif %}
+<p>The book id is {{book_id}}</p>
 <form method="POST">
 {% csrf_token %}
 {% for field in form %}

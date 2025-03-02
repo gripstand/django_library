@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Listing all Instances of {{my_objects.0.mytitle}}</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Imprint</th>
+                <th scope="col">Due Back</th>
+                <th scope="col">Status</th>
+                <th colspan="2" scope="col">Action</th>
+            </tr>
+        </thead>
+    {% for instance in my_objects %}
+    <tr>
+   <td scope="'row">{{instance.mytitle}}</td>
+   <td scope="'row">{{instance.imprint}}</td>
+   <td scope="'row">{{instance.due_back}}</td>
+   <td scope="'row">{{instance.status}}</td>
+   <td scope="'row"><a href="#">Edit</a></td>
+   <td scope="'row"><a href="#">Delete</a></td>
+    </tr> 
+   {% endfor %}
+    </table>
+</div>
+<a href="/catalog/create_book_instance/{{book_id}}" class="btn btn-secondary">Add New</a>
+{% endblock %}

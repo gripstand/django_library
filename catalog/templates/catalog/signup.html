@@ -1,18 +1,14 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
     <h1>Register New User</h1>
     <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Register">
-
-
-
+        {% for field in form %}
+        <div class="col-6 text-start">{{field.label}}</div>
+        <div class="col-6">{{field}}</div>
+        {% endfor %}
+        <br/>
+        <input type="submit" class="btn btn-primary" value="Register">
     </form>
-</body>
-</html>
+</div>
+{% endblock %}

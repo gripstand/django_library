@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-<h1>Create New Book</h1>
+    {% if book.pk %}    
+    <h1>Update Book</h1>
+{% else %}
+    <h1>Add New Book</h1>
+{% endif %}
 <form method="POST">
 {% csrf_token %}
 {% for field in form %}
 <div class="col-6 text-start">{{field.label}}</div>
 <div class="col-6">{{field}}</div>
 {% endfor %}
-<input type="submit" value="Submit">
+<br/>
+<input type="submit" class="btn btn-primary" value="Submit">
 </form>
 </div>
 {% endblock %}

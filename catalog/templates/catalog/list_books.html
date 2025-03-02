@@ -10,6 +10,7 @@
                 <th scope="col">Author</th>
                 <th scope="col">Genre</th>
                 <th scope="col">Langage</th>
+                <th colspan="2" scope="col">Action</th>
             </tr>
         </thead>
     {% for book in book_list %}
@@ -19,6 +20,8 @@
    <td scope="'row">{{book.author}}</td>
    <td scope="'row">{{ book.genre.all|join:", " }}</td>
    <td scope="'row">{{book.language}}</td>
+   <td scope="'row"><a href="update_book/{{book.id}}">Edit</a></td>
+   <td scope="'row"><a href="delete_book/{{book.id}}">Delete</a></td>
     </tr> 
    {% endfor %}
     </table>
